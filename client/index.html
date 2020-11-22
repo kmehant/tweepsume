@@ -56,23 +56,23 @@
                 </div>
                 <input maxlength="15" type="text" id="handle" placeholder="Twitter Handle" aria-label="Handle">
                 &nbsp;
-                <button type="button" class="btn btn-primary" onclick="kick()">Kick off!</button>
+                <button type="button" class="btn btn-primary" style="margin: 10px;" onclick="kick()">Kick off!</button>
                 <br>
 
             </div>
             <button type="button" id="down" class="btn btn-primary" onclick="download()"
                 style="display: none;">Save!</button>
 
-            <div class="container justify-content-center align-items-center" id="graph" style="max-width: 500px; display: none;">
+            <div class="container align-items-center" id="graph" style="max-width: 500px; display: none;">
 
                 <svg id="im" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-                    xmlns:a="http://ns.adobe.com/AdobeSVGViewerExtensions/3.0/" x="0px" y="0px" width="800px"
+                    xmlns:a="http://ns.adobe.com/AdobeSVGViewerExtensions/3.0/" x="-10px" y="0px" width="500px"
                     height="800px" overflow="hidden" xml:space="preserve">
 
                     <g id="circleBarCharts">
 
                         <!-- Web Circle Bar Chart -->
-                        <g id="circleBar-web-group" transform="translate(50,50)">
+                        <g id="circleBar-web-group" transform="translate(100,50)">
                             <image id="circleBar-web-icon" opacity="0" x="166" y="112" overflow="hidden" width="98"
                                 height="77" href="./images/580b57fcd9996e24bc43c53e.png" />
                             <text id="circleBar-web-text" opacity="0" x="180" y="153"></text>
@@ -81,7 +81,7 @@
                                 <rect id="circleBar-web-clipLabels" x="205" y="215" width="180" height="0"></rect>
                             </clippath>
                             <g id="circleBar-web-legend" clip-path="url(#circleBar-web-clipPath)">
-                                <text id="circleBar-web-labels" transform="translate(277,225)"></text>
+                                <text id="circleBar-web-labels" transform="translate(215,225)"></text>
                             </g>
                         </g>
                         <!-- END: Web Circle Bar Chart -->
@@ -107,8 +107,10 @@
 </body>
 <div id="loading">
   </div>
-
-<footer style="background-color: #1DA1F2;  bottom: 0; left: 0; position:fixed; width: 100%">
+<br>
+<br>
+<br>
+<footer style="background-color: #1DA1F2;  bottom: 0; left: 0; position:fixed; width: 100%; z-index: 0">
     <div class="container">
         <p style="color: white; text-align: center;">
             Tweepsume is built as part of Codechella 2020 Hackathon conducted by Twitter!
