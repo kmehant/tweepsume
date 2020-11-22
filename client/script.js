@@ -22,10 +22,10 @@ function download()
             height: 1600,
             width: 1600,
             style: {
-                transform: "scale(" + 2 + ")",
+                transform: "scale(" + 1 + ")",
                 transformOrigin: "top left",
-                width: "1000px",
-                height: "1000px"
+                width: "1500px",
+                height: "2100px"
             }
         })
         .then(function (png) {
