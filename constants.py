@@ -1,3 +1,5 @@
+""" constants.py holds sensitive information required by Tweepsume """
+
 cache_config={'CACHE_TYPE': 'simple'}
 consumer_key="XXXXXX"
 consumer_secret="XXXXXX"

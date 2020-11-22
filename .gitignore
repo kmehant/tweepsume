@@ -140,3 +140,4 @@ cython_debug/
 # Mac Junk
 .DS_Store
 cred.py
+.vscode

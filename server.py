@@ -1,5 +1,5 @@
 
-""" Server for tweepsume service """
+""" Server for tweepsume service: Has routes and view function defined """
 
 from flask import request, jsonify, Response
 import json

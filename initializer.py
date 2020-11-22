@@ -1,5 +1,5 @@
 
-"""Initialize Server"""
+"""initilizer.py creates instances of imported classes that will be used by the project"""
 
 from flask import Flask
 from flask_caching import Cache

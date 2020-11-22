@@ -50,3 +50,7 @@ We learnt a wide range of things from managing time, developing in a fast paced 
 We want to make Tweepsume more scalable to a larger audience and also enforcing some more optimizations possible in both the backend and frontend systems. We would like to add other ways to distribute chart through embed in iFrames and anchor tags.
 
 Built during the #Codechella 2020 Hackathon conducted by Twitter University.
+
+## Code internals
+
+Please feel free to walk through the code files that has comments and doc strings where ever possible.
