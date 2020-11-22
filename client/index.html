@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.2.2/d3.v3.min.js"></script>
+
+
+    <title>Tweepsume</title>
+    <link rel="icon" href="./images/Logo.png" type = "image/x-icon">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.js"
+        integrity="sha512-d9xgZrVZpmmQlfonhQUvTR7lMPtO7NkZMkA0ABN3PHCbKA5nqylQ/yWlFAyY6hYgdF1Qh6nYiuADWwKB4C2WSw=="
+        crossorigin="anonymous"></script>
+    <!-- CSS -->
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
+        integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+
+    <!-- jQuery and JS bundle w/ Popper.js -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/dom-to-image/2.6.0/dom-to-image.min.js"
+        integrity="sha512-01CJ9/g7e8cUmY0DFTMcUw/ikS799FHiOA0eyHsUWfOetgbx/t6oV4otQ5zXKQyIrQGTHSmRVPIgrgLcZi/WMA=="
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.0/FileSaver.min.js"
+        integrity="sha512-csNcFYJniKjJxRWRV1R7fvnXrycHP6qDR21mgz1ZP55xY5d+aHLfo9/FcGDQLfn2IfngbAHd8LdfsagcCqgTcQ=="
+        crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="./styles.css">
+</head>
+
+<body onload="stopit()">
+    <div
+        style="background-color: #1DA1F2; width: 100%; padding-bottom: 5px; margin-bottom: 20px; position: sticky; top: 0; display: block; z-index: 100;">
+        <h3 style="color: white; padding-left: 20px; padding-top: 5px;">Te | <text style="font-size: 21px;">Tweepsume</text></h3>
+    </div>
+    <br>
+    <div class="container justify-content-center align-items-center" style="height:100px;">
+
+        <div class="container" >
+            <h4 style="color: #1DA1F2; font-weight: 600;">Tweepsume</h4>
+            <br>
+            <h2 style="color: black; font-weight: 700;">Personality Insights through deeds through tweets!</h2>
+            <br>
+            <p>Unlike conventional ways of extracting personality insights through a test.
+                Tweepsume leverages your own tweets to throw true light on 22 different traits all in a one chart! Try it out yourself!
+            </p>
+            <!-- <p>Also checkout how <a href="usecase.html">It can be useful!</a></p>  -->
+            <div class="input-group justify-content-center" style="margin-top: 40px; margin-bottom: 40px;">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="basic-addon1">@</span>
+                </div>
+                <input maxlength="15" type="text" id="handle" placeholder="Twitter Handle" aria-label="Handle">
+                &nbsp;
+                <button type="button" class="btn btn-primary" onclick="kick()">Kick off!</button>
+                <br>
+
+            </div>
+            <button type="button" id="down" class="btn btn-primary" onclick="download()"
+                style="display: none;">Save!</button>
+
+            <div class="container justify-content-center align-items-center" id="graph" style="max-width: 500px; display: none;">
+
+                <svg id="im" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                    xmlns:a="http://ns.adobe.com/AdobeSVGViewerExtensions/3.0/" x="0px" y="0px" width="800px"
+                    height="800px" overflow="hidden" xml:space="preserve">
+
+                    <g id="circleBarCharts">
+
+                        <!-- Web Circle Bar Chart -->
+                        <g id="circleBar-web-group" transform="translate(50,50)">
+                            <image id="circleBar-web-icon" opacity="0" x="166" y="112" overflow="hidden" width="98"
+                                height="77"
+                                xlink:href="https://assets.stickpng.com/images/580b57fcd9996e24bc43c53e.png" />
+                            <text id="circleBar-web-text" opacity="0" x="180" y="153"></text>
+                            <g id="circleBar-web-chart" transform="translate(215,150)"></g>
+                            <clippath id="circleBar-web-clipPath">
+                                <rect id="circleBar-web-clipLabels" x="205" y="215" width="180" height="0"></rect>
+                            </clippath>
+                            <g id="circleBar-web-legend" clip-path="url(#circleBar-web-clipPath)">
+                                <text id="circleBar-web-labels" transform="translate(277,225)"></text>
+                            </g>
+                        </g>
+                        <!-- END: Web Circle Bar Chart -->
+
+
+                    </g>
+
+                </svg>
+
+            </div>
+
+
+        </div>
+
+
+    </div>
+
+
+
+
+    <script src="./script.js"></script>
+
+</body>
+<div id="loading">
+  </div>
+
+<footer style="background-color: #1DA1F2;  bottom: 0; left: 0; position:fixed; width: 100%">
+    <div class="container">
+        <p style="color: white; text-align: center;">
+            Tweepsume is built as part of Codechella 2020 Hackathon conducted by Twitter!
+        </p>
+    </div>
+</footer>
+
+</html>

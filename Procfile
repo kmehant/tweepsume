@@ -1,0 +1,1 @@
+web: gunicorn server:server --timeout 10 --max-requests 1200

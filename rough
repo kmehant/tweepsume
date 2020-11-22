@@ -1,0 +1,90 @@
+
+{
+_id: "hash"
+unique_url: ""
+urls: []
+endtimestamp: ""
+}
+
+Security:
+1 month - 0 clicks then expire
+longest url allowed 2KB (At client)
+
+
+
+POST an array of urls to server
+
+1. Sort the urls
+2. find hash
+3. Check if it already exists
+4. if exists written the same unique url
+5. If not create a unique id, push the urls and timestamp to database and return the url
+
+Get urls
+
+1. pick the given url
+2. extract unique id
+3. query the database
+4. if exists return the list of urls and increment clicks
+5. if not return error
+
+We need a worker which does garbage collection, check timestamps and remove those with expired timestamps
+this worker should run for every 10 mins
+
+
+Data model
+
+allowing 5 urls => 2kb * 5 => 10kb
+manyurl link => 10b
+id => 1kb
+endtimestamp => 20b
+clicks => 2kb
+
+Total => 15kb
+
+1 million transactions / month
+------------------------------
+total data to store would be around 1M * 15kb => 10^6 * 10^3 => 10^9 bytes => 1gb
+
+1 year => 15 gb
+
+5 years => 80gb
+------------------------------
+
+10 thousand transactions / month
+--------------------------------
+total data to store would be around 10^4 * 15kb => 10^4 * 10^3 => 10^7 bytes => 10mb
+
+1 year => 150 mb
+
+5 years => 1gb
+------------------------------
+
+
+Endpoint: /v1/generate/
+
+example using curl:
+frontend: curl -H "ip-address-v4: 12345" --request POST https://manyurl.herokuapp.com/v1/generate/ -d '{"data": ["b.com", "a.com"]}'
+return: "3"
+
+purpose: take array of urls and generate unique urls
+send data: array of urls
+request: POST
+
+
+
+Endpoint: /v1/<id>
+
+example using curl:
+frontend: curl --request GET https://manyurl.herokuapp.com/v1/3
+return: ["a.com", "b.com"]
+
+purpose: take the id and give array of urls to frontend
+request: GET
+
+
+
+
+
+
+
