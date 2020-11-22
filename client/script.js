@@ -15,10 +15,23 @@ function startit()
 }
 function download()
 {
-    domtoimage.toBlob(document.getElementById('im'))
-    .then(function (blob) {
-        window.saveAs(blob, 'tweepsume.png');
-    });
+    setTimeout(() => {
+        document.getElementById('im').style.background = "white";
+        var elm = document.getElementById('im');
+        domtoimage.toBlob(elm, {
+            height: 1600,
+            width: 1600,
+            style: {
+                transform: "scale(" + 2 + ")",
+                transformOrigin: "top left",
+                width: "1000px",
+                height: "1000px"
+            }
+        })
+        .then(function (png) {
+            window.saveAs(png, 'tweepsume.png');
+        });
+        }, 1);
 }
 function kick() {
     startit()
