@@ -20,7 +20,7 @@ function download()
         var elm = document.getElementById('im');
         domtoimage.toBlob(elm, {
             height: 1600,
-            width: 1600,
+            width: 1500,
             style: {
                 transform: "scale(" + 1 + ")",
                 transformOrigin: "top left",
@@ -120,7 +120,8 @@ function kick() {
             node = document.getElementById('circleBar-web-labels');
             node.innerHTML = "";
             setTimeout(function () { drawBarCircleChart(chartData.barCircleWeb, "#circleBar-web-chart", "#circleBar-web-values", "#circleBar-web-labels") }, 500);
-            document.getElementById("down").style.display = "block";
+            setTimeout(function () { document.getElementById("down").style.display = "block"; }, 5000);
+
             stopit()
         })
         .catch(function () {

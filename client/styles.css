@@ -1,8 +1,17 @@
-html, body {
+html {
     background-color: white;
     height: 100%;
     width: 100%;
     overflow-x:hidden;
+}
+body {
+    background-color: white;
+    height: 100%;
+    width: 100%;
+    overflow-x:hidden;
+    margin-bottom: 50px;
+    margin-right: 10px;
+    
 }
 
 #circleBar-web-text,
@@ -17,6 +26,7 @@ html, body {
     font-family: 'FranklinGothic-Book' "Franklin Gothic Medium", "Franklin Gothic", "ITC Franklin Gothic", Arial, sans-serif;
     font-size:10px;
     fill:#6D6E71;
+    position: relative;
 }
 
 #circleBar-web-values tspan,
